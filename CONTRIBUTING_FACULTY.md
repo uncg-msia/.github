@@ -178,7 +178,7 @@ and an annotated tag for the same version.
 
 ## Automated tagging
 
-Course repositories can/should copy the org reusable workflow into their course repo:
+    Course repositories can call the org reusable workflow:
 
 [`create-release.yml`](.github/workflows/create-release.yml)
 

@@ -1,10 +1,12 @@
-# UNCG ILRS - Information Library Research Sciences
+# Information, Library, & Research Sciences (iLRS)
+
+**University of North Carolina at Greensboro, School of Education**
 
 ## Introduction
 
-Welcome to the UNCG ILRS (Information Library Research Sciences) organization!
-This organization provides resources, tools, and documentation for students and
-researchers involved in library and information sciences. Whether you're just
+Welcome to the iLRS (Information Library Research Sciences) page!
+This organization provides resources, tools, and documentation for students, faculty, 
+and collaborators involved in library and information sciences. Whether you're just
 getting started or looking for advanced materials, this guide will help you
 navigate the repositories effectively.
 
