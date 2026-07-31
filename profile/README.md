@@ -107,6 +107,8 @@ steps:
 
 ## Course Information and Summaries
 
+The full course catalog for the MSIA program can be found [here](https://catalog.uncg.edu/courses/ian/)
+
 - **IAN 604** — Machine Learning and Predictive Analytics
 - **IAN 630** — Fundamentals of Health & Sport Informatics
 
@@ -118,4 +120,3 @@ to open a fix PR — see
 
 Faculty and maintainers (releases, tags, semester cutover):
 [CONTRIBUTING_FACULTY.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_FACULTY.md).
-
