@@ -6,16 +6,29 @@ repositories.
 - Student setup: [organization profile README](profile/README.md)
 - Student pull requests: [CONTRIBUTING_STUDENTS.md](CONTRIBUTING_STUDENTS.md)
 
+## Student repository access
+
+Students should send you their **GitHub username**. Add each student as an
+**outside collaborator** on the course repositories they need for the term (repo
+Settings → Collaborators and teams, or the org’s invitation flow). They do not
+need org-wide membership for routine coursework.
+
+Remind students to accept the GitHub invite before the first clone. See the
+[profile access section](profile/README.md#access-and-github-account) for the
+student-facing wording.
+
 ## Long-lived branches
 
-| Branch | Role |
-|:--------|:------|
-| `develop` | Default branch. Day-to-day authoring and student fix PRs land here. |
-| `main` | Stable, student-facing content for the current semester. |
+| Ref | Role |
+|:----|:------|
+| **Release tag `vYYYY.S.m`** | Student default: stable materials/exercises for the term. Point students here first. |
+| `main` | Post-release student-facing line. Students use only when you explicitly ask them to work from `main` (e.g. between tags). |
+| `develop` | Default branch. Day-to-day authoring and student fix PRs land here. Work in progress—may lack stable exercises. |
 
 Keep `develop` and `main` aligned during the semester once a release has
 shipped. Prefer pull requests for anything that lands on `develop` or `main`
-when branch protection is enabled.
+when branch protection is enabled. Student-facing day-to-day work should track
+the **latest release tag**, not `develop`.
 
 ## Branch naming convention
 
@@ -74,8 +87,8 @@ When reviewing student PRs against **`develop`**:
 3. Redirect `feature/`, `refactor/`, or large rewrites to a conversation with
    the instructor if they were not pre-approved.
 4. Request small follow-ups on the same branch when needed.
-5. Merge into `develop`; ship to students on `main` via the release process
-   below when you are ready.
+5. Merge into `develop`; ship to students via the release process below
+   (tag on `main` → GitHub Release) when you are ready.
 
 ### Hotfixes
 
@@ -233,5 +246,6 @@ Requirements:
 2. [ ] Land semester content on `develop`.
 3. [ ] Cut `release/YYYY.S.1` → PR → `main`.
 4. [ ] Confirm CI created tag `vYYYY.S.1` and the GitHub Release.
-5. [ ] Point students at `main` (and the release notes / tag as needed).
+5. [ ] Point students at the **latest release tag** / GitHub Release (not
+      `develop`; use `main` only if you deliberately ask them to).
 6. [ ] Sync `develop` with `main` after the release.

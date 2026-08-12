@@ -11,6 +11,13 @@ what looks good.
 For cloning, everyday branch use, and environment setup, start with the
 [organization profile README](profile/README.md).
 
+## Access (outside collaborator)
+
+Provide your **GitHub username** to your instructor as directed for the course.
+You will be invited as an **outside collaborator** on the repositories you need;
+accept the GitHub invitation before cloning or opening a PR. Full setup notes
+are in the [organization profile README](profile/README.md#access-and-github-account).
+
 ## What students should contribute
 
 **Preferred** contribution types (use the matching branch prefix):
@@ -41,10 +48,15 @@ the problem is always welcome.
 
 ## Before you start
 
-1. Use the **`main`** branch for day-to-day coursework (stable materials).
+1. For day-to-day coursework, use the **most recent release tag** (`vYYYY.S.m`)
+   unless your instructor asks you to work from **`main`**. Do **not** rely on
+   **`develop`** for labs or exercises—it is work in progress and may not match
+   stable materials. See the [organization profile README](profile/README.md)
+   material hierarchy.
 2. When proposing a materials fix, base your branch on **`develop`** when it
    exists (that is where maintainers land changes). For graded **assignment**
-   branches, follow your instructor (often from `main`).
+   branches, follow your instructor (often from the current release tag or
+   `main`).
 3. Check open issues and PRs so you do not duplicate someone else’s work.
 
 ## Branch naming convention
@@ -164,9 +176,9 @@ data/games.csv. Updated the path and re-ran the cell successfully.
 - A maintainer may request small changes — push more commits to the **same
   branch**; the PR updates automatically.
 - Once merged, you can delete your branch.
-- Material fixes usually land on `develop` first, then ship to students on
-  `main` in a later release. Your fix may not appear on `main` the same day;
-  that is expected.
+- Material fixes usually land on `develop` first, then ship to students via a
+  later **release tag** on `main`. Your fix may not appear in the latest
+  student release the same day; that is expected.
 
 ## What not to do
 
