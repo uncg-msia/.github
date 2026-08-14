@@ -1,0 +1,131 @@
+# Reusable release workflow for UNCG ILRS course repositories.
+#
+# Called from a course repo, e.g.:
+#
+#   jobs:
+#     release:
+#       uses: uncg-msia/.github/.github/workflows/create-release.yml@main
+#       secrets: inherit
+#
+# Behavior:
+#   1. On a merged PR into main from release/YYYY.S.m → create annotated tag
+#      vYYYY.S.m (pushing the tag triggers step 2).
+#   2. On push of tag vYYYY.S.m → create a GitHub Release if missing.
+#
+# Version pattern: YYYY.S.m (year.semester.patch), semester 1=fall, 2=spring.
+
+name: Create Release
+
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+
+jobs:
+  tag-from-release-pr:
+    name: Tag from release PR
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.base.ref == 'main' &&
+      startsWith(github.event.pull_request.head.ref, 'release/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse and validate release version
+        id: version
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -euo pipefail
+          branch="${HEAD_REF}"
+          version="${branch#release/}"
+
+          if [[ ! "${version}" =~ ^[0-9]{4}\.[12]\.[0-9]+$ ]]; then
+            echo "::error::Release branch must match release/YYYY.S.m (S is 1=fall or 2=spring). Got: ${branch}"
+            exit 1
+          fi
+
+          tag="v${version}"
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+          echo "Parsed release version ${version} (tag ${tag})"
+
+      - name: Checkout main at merge commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          fetch-depth: 0
+
+      - name: Create and push annotated tag
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          TAG: ${{ steps.version.outputs.tag }}
+          MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+        run: |
+          set -euo pipefail
+
+          if git rev-parse -q --verify "refs/tags/${TAG}" >/dev/null; then
+            echo "Tag ${TAG} already exists; nothing to do."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "${TAG}" "${MERGE_SHA}" -m "${VERSION}"
+          git push origin "refs/tags/${TAG}"
+          echo "Created and pushed tag ${TAG} at ${MERGE_SHA}"
+          echo "Tag push will trigger GitHub Release creation."
+
+  release-from-tag:
+    name: GitHub Release from tag push
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate tag name
+        id: version
+        env:
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          tag="${REF_NAME}"
+          version="${tag#v}"
+
+          if [[ ! "${version}" =~ ^[0-9]{4}\.[12]\.[0-9]+$ ]]; then
+            echo "::error::Tag must match vYYYY.S.m (S is 1=fall or 2=spring). Got: ${tag}"
+            exit 1
+          fi
+
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create GitHub Release if missing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+          TAG: ${{ steps.version.outputs.tag }}
+          SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            echo "GitHub Release ${TAG} already exists."
+            exit 0
+          fi
+
+          gh release create "${TAG}" \
+            --title "${VERSION}" \
+            --notes "$(cat <<EOF
+          Course materials release **${VERSION}**.
+
+          - **Version:** \`${VERSION}\`
+          - **Tag:** \`${TAG}\`
+          - **Commit:** \`${SHA}\`
+
+          Students should use the \`main\` branch (or this tag) for stable materials.
+          EOF
+          )"
+          echo "Created GitHub Release ${TAG}"
