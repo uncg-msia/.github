@@ -7,27 +7,28 @@ This organization holds **private course materials** and staff handbooks. Canvas
 
 ## Access
 
-**Being invited to this organization does not grant repository access.**
+**Staff and students are not added the same way.**
 
-Org default permission is **none**. After you accept the invite you still cannot see course or staff repos until someone adds you to the **team** for your role or course.
+| Who | How you get in | What you can see |
+|:----|:---------------|:-----------------|
+| Faculty | Org invite, then the `faculty` team | Master course repos, term repos, [msia-faculty](https://github.com/uncg-msia/msia-faculty), [msia-ta](https://github.com/uncg-msia/msia-ta) |
+| Teaching assistants | Org invite, then `teaching-assistants` | Assigned **term** repos + [msia-ta](https://github.com/uncg-msia/msia-ta). Not the faculty handbook. |
+| Students | **Outside collaborator** on that term’s course repo only | That one repository (for example `ian-630-2026.1`). Not this org profile, not master repos, not staff handbooks. |
 
-| Role | Team that grants access |
-|:-----|:------------------------|
-| Everyone (org profile + student contributing guide) | `members` |
-| Faculty | `faculty` |
-| Teaching assistants | `teaching-assistants` |
-| Students | the **course team** for that term (for example `ian-630-f2026`) |
+Org default permission is **none**. An org invite still opens nothing until a **team** is assigned. That path is for staff.
 
-If you cannot see a repository you expect — or you can see one you should not — reach out. Course-team questions go to your **instructor**. Team-membership mistakes go to an **org admin**.
+Students are **not** org members. They get a repository invitation for the **term offering** (`ian-630-2026.1`, not `ian-630`). After the term, collaborators are removed and the term repo is archived so the next offering starts clean.
 
-Faculty and TA handbooks are private. Students will not see those repositories; that is expected.
+If you cannot see a repository you expect — or you can see one you should not — reach out. Students: your **instructor**. Staff team mistakes: an **org admin**.
 
 ## Students
 
+Your front door is the **term repository README** your instructor links (Canvas / syllabus). You will not see this organization page; that is expected.
+
 1. Create a free [GitHub](https://github.com/) account if you do not have one (use an address you check regularly; your UNCG email is fine).
 2. Send your **GitHub username** to your instructor as directed on Canvas / the syllabus.
-3. Accept the **organization invitation**.
-4. Confirm you are on your **course team**. If a clone fails with “repository not found,” you are not on that team yet (or you have not accepted the invite).
+3. Accept the **repository** invitation for this term’s course (email or GitHub notifications). You are not joining the whole organization.
+4. If a clone fails with “repository not found,” you have not accepted that invite, or the username you sent was wrong.
 
 ### What to check out
 
@@ -86,7 +87,7 @@ Long-lived branches: `main` (student-facing after a release) and `develop` (auth
 
 Confirm you are on the **`faculty`** team. How-tos live in the private handbook — not here:
 
-**[msia-faculty](https://github.com/uncg-msia/msia-faculty)** — access, [symkit](https://github.com/csymd/symkit) install, new courses, releases, adding students to course teams.
+**[msia-faculty](https://github.com/uncg-msia/msia-faculty)** — access, term offerings, [symkit](https://github.com/csymd/symkit) install, new masters, releases.
 
 Teaser (full notes in the handbook; requires a Rust toolchain today):
 
@@ -107,16 +108,16 @@ Install **`--role ta` only**. You will not see `msia-faculty`; that is expected.
 
 ## Courses
 
-Repositories show up in this organization **after** you are on the matching course team.
+Each catalog course has a **master** repo (faculty only) and a **term** repo (what students are invited to).
 
-| Course | Title | Course team (Fall 2026) |
-|:-------|:------|:------------------------|
-| IAN 604 | Machine Learning and Predictive Analytics | `ian-604-f2026` |
-| IAN 630 | Fundamentals of Health Informatics | `ian-630-f2026` |
+| Course | Title | Master (staff) | Term offering (students) |
+|:-------|:------|:---------------|:-------------------------|
+| IAN 604 | Machine Learning and Predictive Analytics | `ian-604` | `ian-604-2026.1` |
+| IAN 630 | Fundamentals of Health Informatics | `ian-630` | `ian-630-2026.1` |
 
 Program catalog: [IAN courses](https://catalog.uncg.edu/courses/ian/).
 
-Some courses also publish a **study hub** on GitHub Pages (reading / self-check only). Graded work stays on Canvas. The course README names the URL when it exists.
+Some **term** repos also publish a study hub on GitHub Pages (reading / self-check only). Graded work stays on Canvas. The term README names the URL when it exists.
 
 ## Contributing
 
