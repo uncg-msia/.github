@@ -11,12 +11,15 @@ what looks good.
 For cloning, everyday branch use, and environment setup, start with the
 [organization profile README](profile/README.md).
 
-## Access (outside collaborator)
+## Access (org member + course team)
 
 Provide your **GitHub username** to your instructor as directed for the course.
-You will be invited as an **outside collaborator** on the repositories you need;
-accept the GitHub invitation before cloning or opening a PR. Full setup notes
-are in the [organization profile README](profile/README.md#access-and-github-account).
+You will be invited to the **uncg-msia** organization and added to your
+**course team**. Accept the GitHub invitation before cloning or opening a PR.
+
+Org membership alone does not open repositories. If a clone fails with
+“repository not found,” you are not on the course team yet. Full setup notes
+are in the [organization profile README](profile/README.md#access).
 
 ## What students should contribute
 
@@ -194,6 +197,6 @@ If you are unsure whether a change is appropriate, open a GitHub **issue**
 describing the problem, or ask your instructor. Opening a draft PR with a
 question in the description is also fine.
 
-Faculty and maintainers: see
-[CONTRIBUTING_FACULTY.md](CONTRIBUTING_FACULTY.md) for release and tagging
-workflows.
+Faculty and maintainers: release and tagging notes live in
+[msia-faculty](https://github.com/uncg-msia/msia-faculty).
+A short pointer remains in [CONTRIBUTING_FACULTY.md](CONTRIBUTING_FACULTY.md).

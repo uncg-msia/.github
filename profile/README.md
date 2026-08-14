@@ -1,196 +1,125 @@
-# Information, Library, & Research Sciences (iLRS)
+# UNCG MSIA
 
-**University of North Carolina at Greensboro, School of Education**
+**M.S. in Informatics and Analytics** — [program page](https://www.uncg.edu/degrees/informatics-and-analytics-m-s/)  
+Department of Information, Library, and Research Sciences (iLRS), School of Education, UNC Greensboro.
 
-## Introduction
+This organization holds **private course materials** and staff handbooks. Canvas is where graded work is submitted.
 
-Welcome to the iLRS (Information Library Research Sciences) page!
-This organization provides resources, tools, and documentation for students, faculty, 
-and collaborators involved in library and information sciences. Whether you're just
-getting started or looking for advanced materials, this guide will help you
-navigate the repositories effectively.
+## Access
 
-## Getting Started
+**Being invited to this organization does not grant repository access.**
 
-You should find a single course repository for each semester/year. From year to
-year, we publish new releases of course material using the format `YYYY.S.m`
-where:
+Org default permission is **none**. After you accept the invite you still cannot see course or staff repos until someone adds you to the **team** for your role or course.
 
-- **Major** (`YYYY`) — the calendar year
-- **Minor** (`S`) — the semester (`1` = fall, `2` = spring)
-- **Patch** (`m`) — starts at `1` and increments throughout the semester as needed
+| Role | Team that grants access |
+|:-----|:------------------------|
+| Everyone (org profile + student contributing guide) | `members` |
+| Faculty | `faculty` |
+| Teaching assistants | `teaching-assistants` |
+| Students | the **course team** for that term (for example `ian-630-f2026`) |
 
-For example, `2026.1.1` is the initial release of course materials for fall 2026.
-Git tags for those releases are prefixed with `v` (for example `v2026.1.1`).
+If you cannot see a repository you expect — or you can see one you should not — reach out. Course-team questions go to your **instructor**. Team-membership mistakes go to an **org admin**.
 
-### Material hierarchy (what to use)
+Faculty and TA handbooks are private. Students will not see those repositories; that is expected.
 
-Use the **most recent release** for day-to-day coursework unless your instructor
-specifically asks you to work from a branch.
+## Students
+
+1. Create a free [GitHub](https://github.com/) account if you do not have one (use an address you check regularly; your UNCG email is fine).
+2. Send your **GitHub username** to your instructor as directed on Canvas / the syllabus.
+3. Accept the **organization invitation**.
+4. Confirm you are on your **course team**. If a clone fails with “repository not found,” you are not on that team yet (or you have not accepted the invite).
+
+### What to check out
+
+Use the **most recent release** for day-to-day coursework unless your instructor asks you to work from a branch.
 
 | Priority | What | Student use |
 |:---------|:-----|:------------|
-| **1 — default** | **Latest release tag** (`vYYYY.S.m`) | Stable materials and exercises for the term. Check out this tag (or download the GitHub Release). |
-| **2 — only if told** | **`main`** | Use when the instructor asks you to work directly from `main`. It may sit between tagged releases. |
-| **3 — not for routine work** | **`develop`** | Active development. Diffs and unfinished modules may appear here; content can change and may **not** include stable material or exercises yet. |
+| **1 — default** | **Latest release tag** (`vYYYY.S.m`) | Stable materials and exercises for the term |
+| **2 — only if told** | **`main`** | Between tagged releases, when the instructor says so |
+| **3 — not for routine work** | **`develop`** | Authoring branch. May be incomplete; not the default for labs |
 
-Prefer **tags over branches** for reading and completing labs. Treat anything on
-`develop` as work in progress unless you are told otherwise.
-
-### Access and GitHub account
-
-Course repositories are typically **private**. To receive access:
-
-1. Create a free [GitHub](https://github.com/) account if you do not already have
-   one (use an address you check regularly; your institutional email is fine).
-2. Send your **GitHub username** to your instructor (or as directed on Canvas /
-   the syllabus) for each course that uses org repositories.
-3. Faculty will add you as an **outside collaborator** on the repositories you
-   need for that term. You will get a GitHub invitation email—**accept** it
-   before cloning.
-
-You only need collaborator access on the repos for your courses, not membership
-in the whole organization. If a clone fails with “repository not found,” confirm
-you accepted the invite and that you gave the instructor the correct username.
-
-To get started with any UNCG ILRS repository:
-
-1. Navigate to your preferred working directory and clone the repository:
-
-   ```bash
-   # For example...
-   cd ~/coursework   # macOS / Linux
-   cd ~\coursework   # PowerShell
-   git clone <repository-url>
-   ```
-
-2. Enter the repository directory:
-
-   ```bash
-   cd <repository-name>
-   ```
-
-3. Fetch tags and check out the **latest release** for this semester (preferred):
-
-   ```bash
-   git fetch origin --tags
-   # List recent release tags (highest first):
-   git tag -l 'v*' --sort=-v:refname | head
-   # Check out the most recent one for your term (example):
-   git checkout v2026.1.1
-   ```
-
-   You can also open the repo on GitHub → **Releases** and use the newest
-   `YYYY.S.m` release. Only if your instructor says so, use `main` instead:
-
-   ```bash
-   git fetch origin
-   git checkout main
-   git pull origin main
-   ```
-
-4. Refer to that repository's `README.md` for course-specific setup. Course
-   repositories either ship a `Containerfile` / `requirements.txt` (or
-   equivalent) for the runtime environment, or are HTML-based modules. If the
-   repo includes `docs/ai-what-to-expect.md`, read that for AI-use defaults for
-   the course.
-
-### Branches and student work
-
-Each repository also has long-lived branches:
-
-- **`main`** — post-release line of student-facing content; use only when told
-  (see hierarchy above).
-- **`develop`** — default authoring branch. May contain experimental or incomplete
-  material; not the default for graded labs or weekly exercises.
-
-If you need to switch branches after checking out a tag:
+`YYYY` is the calendar year, `S` is the semester (`1` = fall, `2` = spring), `m` starts at `1` and increments during the term. Example: `2026.1.1` / tag `v2026.1.1` is the first fall 2026 materials release.
 
 ```bash
-git checkout <branch-name>
+cd ~/coursework          # macOS / Linux
+# cd ~\coursework        # PowerShell
+git clone <repository-url>
+cd <repository-name>
+
+git fetch origin --tags
+git tag -l 'v*' --sort=-v:refname | head
+git checkout v2026.1.1   # use the tag your instructor names
 ```
 
-In some courses, you may be asked to create a feature branch to make changes or
-submit work — or you may catch a bug or typo and want to fix it.
+You can also open the repo on GitHub → **Releases** and use the newest `YYYY.S.m` release.
 
-To create and publish a branch:
+Then follow **that repository’s `README.md`** for course-specific setup.
+
+### Environment
+
+Courses that ship a `Containerfile` expect [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation). Some also support a local `uv` install. Use the course README; this is only the generic container shape:
 
 ```bash
-# Create and switch to your branch (longer form: git branch … then git checkout …)
-git checkout -b <last-name/module-number>
-
-# Make your changes and commit, then publish the branch:
-git push --set-upstream origin <last-name/module-number>
+docker build -t <repo-name> .
+docker run -it --rm -v "$(pwd)":/app -w /app <repo-name>
+# or: podman build / podman run with the same flags
 ```
 
-Example branch names: `smith/module-02`, `garcia/module-05`. For a materials
-fix, open a pull request after you push — see
-[CONTRIBUTING_STUDENTS.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_STUDENTS.md).
+### AI in coursework
 
-### Container Setup
+Syllabus and Canvas for the term win if anything conflicts.
 
-Repositories that include a `Containerfile` do so for a reproducible
-environment. Follow the individual repository docs when available; general
-steps:
-
-1. Install [Docker](https://docs.docker.com/get-docker/) or
-   [Podman](https://podman.io/getting-started/installation).
-
-2. Build the container:
-
-   ```bash
-   docker build -t <repo-name> .
-   # or with Podman
-   podman build -t <repo-name> .
-   ```
-
-3. Run the container:
-
-   ```bash
-   docker run -it --rm -v "$(pwd)":/app <repo-name>
-   # or with Podman
-   podman run -it --rm -v "$(pwd)":/app <repo-name>
-   ```
-
-## Using AI in coursework
-
-AI tools may support learning in ILRS / MSIA courses. Your **syllabus and Canvas
-for the term** always take priority if anything differs.
-
-### Where to read the full guidance
-
-1. **In your course repo (primary):** after you clone, look for
-   `docs/ai-what-to-expect.md` and, when present, `docs/ai/` (workflow, privacy,
-   disclosure, prompting, and related guides).
-2. **Org student kit (canonical source for those guides):**
-   [ai-kit-student](https://github.com/uncg-msia/ai-kit-student) — literacy
-   handouts and optional learner-agent skills. Prefer the copies shipped in your
-   course materials when both exist.
-
-Optional local agent config (for example `AGENTS.md` or tool skill folders) is
-**not required** unless your course says so. Browser chat tools are enough for
-most work when they fit course rules.
-
-### Org defaults (short)
-
-- Prefer **attempt → assist → verify → own** before submitting.
-- You own everything you submit and should be able to explain it.
-- Do **not** put restricted data (PHI, credentialed extracts such as MIMIC,
-  secrets, classmates’ work) into consumer AI tools.
+- **Default:** read `docs/ai-what-to-expect.md` in the course repo (and `docs/ai/` when present). You do **not** install a kit.
+- **Optional:** use a local learner agent only if **that course’s README** says to.
+- Prefer **attempt → assist → verify → own**. You own what you submit.
+- Do **not** put restricted data (PHI, credentialed extracts such as MIMIC, secrets, classmates’ work) into consumer AI tools.
 - Disclose AI use when the course asks.
 
-Questions about data or disclosure: ask your instructor or TA before the
-deadline.
+### Student work and fixes
 
-## Course Information and Summaries
+Long-lived branches: `main` (student-facing after a release) and `develop` (authoring). For a graded branch or a small materials fix, use the prefixes in
+[CONTRIBUTING_STUDENTS.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_STUDENTS.md)
+(for example `assignment/smith-module-02`, `bugfix/…`, `docs/…`).
 
-The full course catalog for the MSIA program can be found [here](https://catalog.uncg.edu/courses/ian/)
+## Faculty
+
+Confirm you are on the **`faculty`** team. How-tos live in the private handbook — not here:
+
+**[msia-faculty](https://github.com/uncg-msia/msia-faculty)** — access, [symkit](https://github.com/csymd/symkit) install, new courses, releases, adding students to course teams.
+
+Teaser (full notes in the handbook; requires a Rust toolchain today):
+
+```bash
+# from a clone of csymd/symkit
+./cli/symkit install /path/to/course --harness teaching --role instructor
+```
+
+Commit student-safe `docs/`. Do not commit staff packs or `.agents/` / `.grok/` to a student-visible branch.
+
+## Teaching assistants
+
+Confirm you are on **`teaching-assistants`**. How-tos live in:
+
+**[msia-ta](https://github.com/uncg-msia/msia-ta)** — TA-role install, reviewing student PRs, evaluation norms, boundaries.
+
+Install **`--role ta` only**. You will not see `msia-faculty`; that is expected. Do not install instructor packs.
+
+## Courses
+
+Repositories show up in this organization **after** you are on the matching course team.
+
+| Course | Title | Course team (Fall 2026) |
+|:-------|:------|:------------------------|
+| IAN 604 | Machine Learning and Predictive Analytics | `ian-604-f2026` |
+| IAN 630 | Fundamentals of Health Informatics | `ian-630-f2026` |
+
+Program catalog: [IAN courses](https://catalog.uncg.edu/courses/ian/).
+
+Some courses also publish a **study hub** on GitHub Pages (reading / self-check only). Graded work stays on Canvas. The course README names the URL when it exists.
 
 ## Contributing
 
-Found a typo, broken notebook cell, or unclear step? Students are encouraged
-to open a fix PR:
-[CONTRIBUTING_STUDENTS.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_STUDENTS.md).
-
-Faculty and maintainers (releases, tags, semester cutover):
-[CONTRIBUTING_FACULTY.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_FACULTY.md).
+- Students: [CONTRIBUTING_STUDENTS.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_STUDENTS.md)
+- Faculty (releases and semester cutover): [msia-faculty](https://github.com/uncg-msia/msia-faculty) — a short pointer remains in [CONTRIBUTING_FACULTY.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_FACULTY.md)
+- Teaching assistants: [msia-ta](https://github.com/uncg-msia/msia-ta)
