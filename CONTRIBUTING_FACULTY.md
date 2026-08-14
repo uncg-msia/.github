@@ -6,8 +6,9 @@ This file is a **pointer**. The faculty handbook is the private repo
 | Topic | Where |
 |:------|:------|
 | Access, teams, adding students | [msia-faculty/docs/access.md](https://github.com/uncg-msia/msia-faculty/blob/develop/docs/access.md) |
+| Cut / archive a term offering | [msia-faculty/docs/term-offering.md](https://github.com/uncg-msia/msia-faculty/blob/develop/docs/term-offering.md) |
 | Install the teaching harness (symkit) | [msia-faculty/docs/install-symkit.md](https://github.com/uncg-msia/msia-faculty/blob/develop/docs/install-symkit.md) |
-| New course repo | [msia-faculty/docs/new-course.md](https://github.com/uncg-msia/msia-faculty/blob/develop/docs/new-course.md) |
+| New master course repo | [msia-faculty/docs/new-course.md](https://github.com/uncg-msia/msia-faculty/blob/develop/docs/new-course.md) |
 | Releases, tags, `YYYY.S.m` | [msia-faculty/docs/releases.md](https://github.com/uncg-msia/msia-faculty/blob/develop/docs/releases.md) |
 | Student AI docs (what faculty install) | [msia-faculty/docs/student-ai.md](https://github.com/uncg-msia/msia-faculty/blob/develop/docs/student-ai.md) |
 

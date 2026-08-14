@@ -8,18 +8,23 @@ request (PR) is a normal part of how we maintain these repositories. You do
 not need special permission to propose a change; faculty review and merge
 what looks good.
 
-For cloning, everyday branch use, and environment setup, start with the
-[organization profile README](profile/README.md).
+For cloning, everyday branch use, and environment setup, start with **this
+term’s course README** (the repository you were invited to). A copy of the
+org-wide notes lives in the
+[organization profile README](profile/README.md) (staff can see that page;
+students usually cannot).
 
-## Access (org member + course team)
+## Access (outside collaborator on the term repo)
 
 Provide your **GitHub username** to your instructor as directed for the course.
-You will be invited to the **uncg-msia** organization and added to your
-**course team**. Accept the GitHub invitation before cloning or opening a PR.
+You will be invited as an **outside collaborator** on **this term’s**
+repository (for example `ian-630-2026.1`). Accept that repository invitation
+before cloning or opening a PR.
 
-Org membership alone does not open repositories. If a clone fails with
-“repository not found,” you are not on the course team yet. Full setup notes
-are in the [organization profile README](profile/README.md#access).
+You are not added to the organization. You will not see last term’s repo,
+the faculty master (`ian-630`), or staff handbooks. If a clone fails with
+“repository not found,” you have not accepted the invite or the username
+is wrong.
 
 ## What students should contribute
 
