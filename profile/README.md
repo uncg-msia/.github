@@ -14,12 +14,3 @@ Your instructor invites your **UNCG email** to that course’s repository. You a
 3. Open the repository your instructor named and follow **that** `README.md`.
 
 If a clone fails with “repository not found,” the invitation is still pending, or you are signed in with a different GitHub account. Write your instructor with your GitHub username, the UNCG email on that account, and a screenshot.
-
-## Staff
-
-Organization membership is for faculty and TAs. Handbooks: [msia-faculty](https://github.com/uncg-msia/msia-faculty) (`faculty` team) and [msia-ta](https://github.com/uncg-msia/msia-ta) (`teaching-assistants`).
-
-## Contributing
-
-- Students: [CONTRIBUTING_STUDENTS.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_STUDENTS.md)
-- Faculty: [CONTRIBUTING_FACULTY.md](https://github.com/uncg-msia/.github/blob/main/CONTRIBUTING_FACULTY.md)
