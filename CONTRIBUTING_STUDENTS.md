@@ -9,22 +9,21 @@ not need special permission to propose a change; faculty review and merge
 what looks good.
 
 For cloning, everyday branch use, and environment setup, start with **this
-term’s course README** (the repository you were invited to). A copy of the
-org-wide notes lives in the
-[organization profile README](profile/README.md) (staff can see that page;
-students usually cannot).
+term’s course README** (the repository you were invited to). Short org-wide
+notes are on the [organization profile](https://github.com/uncg-msia).
 
 ## Access (outside collaborator on the term repo)
 
-Provide your **GitHub username** to your instructor as directed for the course.
-You will be invited as an **outside collaborator** on **this term’s**
-repository (for example `ian-630-2026.1`). Accept that repository invitation
-before cloning or opening a PR.
+Your instructor invites your **UNCG email** as an **outside collaborator**
+on **this term’s** repository (for example `ian-630-2026.1`). That email
+must be added and verified on your GitHub account (`Settings → Emails`).
+Accept the repository invitation (email or GitHub notifications) before
+cloning or opening a PR. If GitHub asks you to sign in with UNCG, do that.
 
 You are not added to the organization. You will not see last term’s repo,
 the faculty master (`ian-630`), or staff handbooks. If a clone fails with
-“repository not found,” you have not accepted the invite or the username
-is wrong.
+“repository not found,” you have not accepted the invite, or you are signed
+in with a different GitHub account.
 
 ## What students should contribute
 
@@ -59,8 +58,7 @@ the problem is always welcome.
 1. For day-to-day coursework, use the **most recent release tag** (`vYYYY.S.m`)
    unless your instructor asks you to work from **`main`**. Do **not** rely on
    **`develop`** for labs or exercises—it is work in progress and may not match
-   stable materials. See the [organization profile README](profile/README.md)
-   material hierarchy.
+   stable materials.
 2. When proposing a materials fix, base your branch on **`develop`** when it
    exists (that is where maintainers land changes). For graded **assignment**
    branches, follow your instructor (often from the current release tag or
